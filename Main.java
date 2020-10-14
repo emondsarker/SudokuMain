@@ -108,12 +108,16 @@ public class Main extends JFrame {
 			int inputValueInt = Integer.parseInt(inputValue);
 			
 			if(inputValueInt == puzzle[rowSelected][columnSelected]) {
-				gameCells[rowSelected][columnSelected].setBackground(Color.green);
-				score++;
+				if(gameCells[rowSelected][columnSelected].getBackground()!=Color.green) { //prevents winning by mashing
+					gameCells[rowSelected][columnSelected].setBackground(Color.green);
+					score++;
+				}
 			}
 			else {
-				gameCells[rowSelected][columnSelected].setBackground(Color.RED);
-				score--;
+				if(gameCells[rowSelected][columnSelected].getBackground()!=Color.RED) { //prevents losing by mashing
+					gameCells[rowSelected][columnSelected].setBackground(Color.RED);
+					score--;
+				}
 			}
 			
 			if(score==scoreNeededToWin) {
